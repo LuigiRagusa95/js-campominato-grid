@@ -6,23 +6,13 @@ const createElement = (tag, classes, ...content) => {
 
 const listener = (element, event, cb) => element.addEventListener(event, cb);
 const activate = (element) => element.classList.add('active');
+const cells = (value) => (value === 3 ? 100 : value === 2 ? 81 : 49);
+const rows = (value) => Math.sqrt(value);
 
-const getSize = () => {
-	let row = 0;
-	let cells = 0;
-	const size = parseInt(document.getElementById('001').value);
-	if (size === 3) {
-		row = 10;
-		cells = 100;
-	} else if (size === 2) {
-		row = 9;
-		cells = 81;
-	} else if (size === 1) {
-		row = 7;
-		cells = 49;
-	}
-
-	return { row, cells };
+const size = () => {
+	let c = cells(parseInt(document.getElementById('001').value));
+	let r = rows(c);
+	return { c, r };
 };
 
 const buildGrid = (row, cells) => {
@@ -39,8 +29,5 @@ const buildGrid = (row, cells) => {
 const playBtn = document.getElementById('play');
 playBtn.addEventListener('click', (event) => {
 	document.querySelector('main').innerHTML = '';
-	const row = getSize().row;
-	const cells = getSize().cells;
-	console.log(row, cells);
-	buildGrid(row, cells);
+	buildGrid(size().r, size().c);
 });
