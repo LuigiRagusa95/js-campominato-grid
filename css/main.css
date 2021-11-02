@@ -86,13 +86,13 @@ main {
 	width: 32rem;
 	height: 32rem;
 	display: flex;
+	flex-wrap: wrap;
 }
 
 .cell {
 	display: flex;
+	cursor: pointer;
 	align-items: center;
-	width: calc(100% / 10);
-	height: calc(100% / 10);
 	justify-content: center;
 	box-shadow: 2px 0 0 0 var(--gray), 0 2px 0 0 var(--gray), 2px 2px 0 0 var(--gray), 2px 0 0 0 var(--gray) inset, 0 2px 0 0 var(--gray) inset;
 }
