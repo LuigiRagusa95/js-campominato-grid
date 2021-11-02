@@ -6,7 +6,7 @@ const createElement = (tag, classes, ...content) => {
 
 const activate = (element) => (!element.classList.contains('active') ? element.classList.add('active') : element.classList.remove('active'));
 const listener = (element, event, cb) => element.addEventListener(event, cb);
-const cells = (value) => (value === 3 ? 100 : value === 2 ? 81 : 49);
+const cells = (value) => (value === 1 ? 100 : value === 2 ? 81 : 49);
 const rows = (value) => Math.sqrt(value);
 
 const size = () => {
