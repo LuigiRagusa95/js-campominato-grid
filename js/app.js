@@ -4,8 +4,8 @@ const createElement = (tag, classes, ...content) => {
 	return Object.assign(document.createElement(tag), { className: classes, innerText: content });
 };
 
+const activate = (element) => (!element.classList.contains('active') ? element.classList.add('active') : element.classList.remove('active'));
 const listener = (element, event, cb) => element.addEventListener(event, cb);
-const activate = (element) => element.classList.add('active');
 const cells = (value) => (value === 3 ? 100 : value === 2 ? 81 : 49);
 const rows = (value) => Math.sqrt(value);
 
